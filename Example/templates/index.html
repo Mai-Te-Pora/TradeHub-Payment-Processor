@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+<title>{{title}}</title>
+</head>
+
+<body>
+    <div>
+      <<h2>
+      Please complete a transfer via Swithero Tradehub Internal Transfer to complete payment/donation. Please remember to document the Txn Hash of the transfer for confirmation of payment.
+      <p> Expected Payment Token: {{token}} </p>
+      <p> Expected Fee in Tokens: {{fee}} </p>
+      <p> Send to address: {{to_address}} </p>
+      </h2>
+    </div>
+
+    {% block content %}
+      <h2>Switcheo Internal Transfer Payment Method</h2>
+        <form action="" method="post" novalidate>
+          {{ form.hidden_tag() }}
+              {{ form.opt.label }}<br>
+                {{ form.opt(**{"onchange": "form.submit()"}) }}<br>
+              {{ form.hash.label }}<br>
+                {{ form.hash(size=80) }}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    {% endblock %}
+
+</body>
+
+</html>
